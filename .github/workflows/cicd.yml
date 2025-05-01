@@ -22,13 +22,14 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1  # Adjust as per your region
+        aws-region: ap-south-1  # Adjust as per your region
 
     # Step 3: Download the model from S3
     - name: Download Model from S3
       run: |
-        mkdir -p models/final  # Ensure the 'models' directory and 'final' subdirectory are created
-        aws s3 cp s3://agri-health/models/wheat_leaf_nn_model.h5 models/final/
+        mkdir -p models/final
+        aws s3 cp s3://agri-health/wheat_leaf_nn_model.h5 models/final/
+
 
     # Step 4: Log in to Docker Hub
     - name: Log in to Docker Hub
