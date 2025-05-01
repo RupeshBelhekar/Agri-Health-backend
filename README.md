@@ -1,6 +1,6 @@
-# 🌾 AgroPulse: Wheat Disease Detection Model
+# 🌾 AgriHealth AI: Wheat Disease Identification System
 
-AgroPulse is an 🌱 agricultural prediction system designed to detect wheat leaf diseases and provide crop health insights using machine learning. Built with 🚀 **FastAPI**,** 🧠 TensorFlow**, and powered by **☁️ AWS Services** (EC2 and S3), this project aims to assist farmers and agricultural enthusiasts worldwide.
+AgriHealth is an 🌱 agricultural prediction system designed to detect wheat leaf diseases and provide crop health insights using machine learning. Built with 🚀 **FastAPI**,** 🧠 TensorFlow**, and powered by **☁️ AWS Services** (EC2 and S3), this project aims to assist farmers and agricultural enthusiasts worldwide.
 
 
 ## Key Features:
@@ -18,13 +18,13 @@ AgroPulse is an 🌱 agricultural prediction system designed to detect wheat lea
 
 ## 🛠️ Key Contributors
 
-👨‍💻 **[Kishor Patil](https://github.com/kishorpatil)** 
+👨‍💻 **[Rupesh Belhekar](https://github.com/RupeshBelhekar)** 
 
-👩‍💻 **[Pradnyanad Bhadarge](https://github.com/pradnyanand09)** 
+👩‍💻 **[Anushka Wani](https://github.com/anushka0312-ux)** 
 
-👨‍💻 **[Shreejit Bhakte](https://github.com/shreejitbhakte)**
+👨‍💻 **[Anudip Baviskar](https://github.com/AnudipBaviskar)**
 
-👨‍💻 **[Yuvraj Sankilwar](https://github.com/yuvrajofficials)**
+👨‍💻 **[Krushanali Rajput](https://github.com/Krushanali-Rajput)**
 
 
 ---
@@ -220,19 +220,19 @@ This project is containerized using Docker, making it easy to deploy anywhere.
 Navigate to the project directory and build the Docker image:
 
 ```bash
-docker build -t agropulse-backend .
+docker build -t AgriHealth-backend .
 ```
 ▶️ **2. Running the Docker Container**
 Run the Docker container to start the application:
 
 ```bash
-docker run -d -p 8000:8000 agropulse-backend
+docker run -d -p 8000:8000 AgriHealth-backend
 ```
 The FastAPI app will be available at: 🌐 http://localhost:8000
 
 ## 📜 License
 
-This project is licensed under the `Apache 2.0 License` - see the [LICENSE](https://github.com/yuvrajofficials/agro-pulse-backend/blob/main/LICENSE) file for details.
+This project is licensed under the `Apache 2.0 License` - see the [LICENSE](https://github.com/RupeshBelhekar/Agri-Health-backend/blob/main/LICENSE) file for details.
 
 ## 🙌 Acknowledgements
 **🏎️FastAPI:** Fast and high-performance web framework for building APIs with Python 3.8+.
