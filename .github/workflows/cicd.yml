@@ -27,7 +27,7 @@ jobs:
     - name: Download Model from S3
       run: |
         mkdir -p models/final  # Ensure the 'models' directory and 'final' subdirectory are created
-        aws s3 cp s3://agro-pulse/models/wheat_leaf_nn_model.h5 models/final/
+        aws s3 cp s3://agri-health/models/wheat_leaf_nn_model.h5 models/final/
 
     # Step 4: Log in to Docker Hub
     - name: Log in to Docker Hub
@@ -39,9 +39,9 @@ jobs:
     # Step 5: Build the Docker image
     - name: Build Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/agro-pulse-backend:latest .
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/agri-health:latest .
 
     # Step 6: Push the Docker image to Docker Hub
     - name: Push Docker Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/agro-pulse-backend:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/agri-health:latest
