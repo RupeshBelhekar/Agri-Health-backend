@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+tensorflow-cpu
+numpy
+pillow
+pydantic
+pandas
+scikit-learn
+python-multipart
+prometheus-fastapi-instrumentator
+structlog
