@@ -47,7 +47,7 @@ The project follows a standard directory structure for FastAPI-based application
 
 
 ```plaintext
-📂 agro-pulse-backend/
+📂 Agri-Health-backend/
 ├── 📁 config/                    # YAML configuration files
 │   ├── 📝 dev.yaml               # Development configuration
 │   └── 📝 prod.yaml              # Production configuration
@@ -114,8 +114,8 @@ Before you begin, ensure you have the following installed on your system:
 
 1.Clone the repository:
    ```bash
-   git clone https://github.com/yuvrajofficials/agro-pulse-backend.git
-   cd agro-pulse-backend
+   git clone https://github.com/RupeshBelhekar/Agri-Health-backend.git
+   cd Agri-Health-backend
    ```
 
 2.Create a Python Virtual Environment:
@@ -203,12 +203,12 @@ Use the AWS CLI to upload models and datasets to your S3 bucket:
 
 🗂️ **Upload Model:**
 ```bash
-aws s3 cp /path/to/your/model.h5 s3://agro-pulse/models/
+aws s3 cp /path/to/your/model.h5 s3://Agri-Health/models/
 ```
 
 📊 **Upload Dataset:**
 ```bash
-aws s3 cp /path/to/your/dataset.csv s3://agro-pulse/datasets/
+aws s3 cp /path/to/your/dataset.csv s3://Agri-Health/datasets/
 ```
 
 Once uploaded, the backend fetches the model and data directly from S3 at runtime, ensuring seamless scalability.
