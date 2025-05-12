@@ -34,6 +34,15 @@ except Exception as e:
 # Initialize FastAPI app
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500"],  # In production, use ["http://127.0.0.1:5500"] or specific domain
+    allow_credentials=True,
+    allow_methods=["http://127.0.0.1:5500"],
+    allow_headers=["http://127.0.0.1:5500"],
+)
 # Define disease categories (ensure they match training data)
 disease_categories = ['Healthy', 'wheat_leaf_rust', 'wheat_loose_smut']
 

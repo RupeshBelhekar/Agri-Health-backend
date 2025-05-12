@@ -23,7 +23,7 @@
             formData.append("file", file);
 
             try {
-                const response = await fetch("http://13.233.156.89:8000/predict/", {
+                const response = await fetch("http://13.233.156.89:8000/docs#/default/predict_predict__post", {
                     method: "POST",
                     body: formData
                 });
