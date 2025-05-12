@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wheat Leaf Disease Predictor</title>
+</head>
+<body>
+  <h1>Wheat Leaf Disease Detection</h1>
+
+  <form id="upload-form">
+    <label for="image">Select Leaf Image:</label>
+    <input type="file" id="image" name="file" accept="image/*" required><br><br>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  <h2 id="prediction-result"></h2>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById('image');
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      try {
+        const response = await fetch("http://13.233.156.89:8000/predict/", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch prediction.");
+        }
+
+        const result = await response.json();
+        document.getElementById("prediction-result").textContent =
+          "Predicted Disease: " + result.predicted_disease;
+      } catch (err) {
+        document.getElementById("prediction-result").textContent =
+          "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
