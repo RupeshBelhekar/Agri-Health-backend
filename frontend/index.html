@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Agri Health Predictor</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-    }
-    .preview {
-      margin-top: 1rem;
-    }
-    #result {
-      font-weight: bold;
-      margin-top: 1rem;
-      color: green;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Wheat Leaf Disease Detection</title>
 </head>
 <body>
-  <h2>Upload Image for Prediction</h2>
-  <input type="file" id="fileInput" accept="image/*">
-  <button onclick="uploadImage()">Predict</button>
+    <h2>Upload Wheat Leaf Image</h2>
+    <input type="file" id="fileInput" accept="image/*" />
+    <button onclick="uploadImage()">Predict Disease</button>
+    <p id="result"></p>
 
-  <div class="preview">
-    <img id="previewImage" src="" alt="" width="200" style="display:none;">
-  </div>
+    <script>
+        async function uploadImage() {
+            const input = document.getElementById('fileInput');
+            const file = input.files[0];
+            if (!file) {
+                alert("Please select a file.");
+                return;
+            }
 
-  <div id="result"></div>
+            const formData = new FormData();
+            formData.append("file", file);
 
-  <script>
-    function uploadImage() {
-      const fileInput = document.getElementById('fileInput');
-      const file = fileInput.files[0];
-      if (!file) {
-        alert("Please select an image.");
-        return;
-      }
+            try {
+                const response = await fetch("http://13.233.156.89:8000/predict/", {
+                    method: "POST",
+                    body: formData
+                });
 
-      const formData = new FormData();
-      formData.append("file", file);
+                if (!response.ok) {
+                    throw new Error("Prediction failed");
+                }
 
-      // Show preview
-      const preview = document.getElementById("previewImage");
-      preview.src = URL.createObjectURL(file);
-      preview.style.display = "block";
-
-      fetch("http://13.233.156.89:8000/predict/", {
-        method: "POST",
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("result").textContent = "Prediction: " + data.prediction;
-      })
-      .catch(error => {
-        document.getElementById("result").textContent = "Error: " + error;
-      });
-    }
-  </script>
+                const data = await response.json();
+                document.getElementById("result").innerText =
+                    "Predicted Disease: " + data.predicted_disease;
+            } catch (error) {
+                document.getElementById("result").innerText =
+                    "Error: " + error.message;
+            }
+        }
+    </script>
 </body>
 </html>
